@@ -16,15 +16,15 @@ def get_project_root_path() -> Path:
     Returns:
         pathlib.Path: Path to root
     """
-    project_root = "playground"
+    package_root = "packages"
     path_to_here = Path(__file__)
 
-    for parent in path_to_here.parents:
-        if parent.name == project_root:
-            return parent
+    for directory in path_to_here.parents:
+        if directory.name == package_root:
+            return directory.parent
 
     raise FileNotFoundError(
-        f"Could not find {project_root} in path to {__file__}")
+        f"Could not find parent of {package_root} in path to {__file__}")
 
 
 def get_data_root_path() -> Path:
@@ -34,3 +34,8 @@ def get_data_root_path() -> Path:
         pathlib.Path: Path to data directory
     """
     return Path(get_project_root_path(), "data")
+
+
+if __name__ == "__main__":
+    print(f"Path to root: {get_project_root_path()}")
+    print(f"Data root: {get_data_root_path()}")
