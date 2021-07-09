@@ -10,6 +10,7 @@ Inspired by my summer internship at Skatteetaten (The Norwegian Tax Administrati
 The project is organized in a couple different parts:
 - `data`: This is where my data will be kept, when I get around to downloading any datasets. Includes a separate directory for each dataset. If needed, each directory can contain subdirectories.
 - `models`: Actual implementation of different machine learning models.
+- `output`: Output from implemented models. Contains dumped models, plots, logs and reports.
 - `packages`: These contain all code used by more than one model. The idea is that these will include utilities such as path utilities and common data operations (perhaps even DB-handling).
 
 ## Code style
