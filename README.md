@@ -17,4 +17,4 @@ The project is organized in a couple different parts:
 The code should, as far as reasonably possible, follow PEP8. Most functions and methods should include docstrings following Google's Docstring Template.
 
 ## Testing
-Testing will be done with pytest. All tests will reside with related code (meaning that tests of `packages/utility` will be in module `packages/utility/test.py` or directory `packages/utility/test_utility`).
+Testing will be done with pytest. All tests will reside with related code (meaning that tests of `packages/utility` will be in module `packages/utility/test_utility.py` or directory `packages/utility/test_utility/`).
