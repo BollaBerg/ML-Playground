@@ -36,6 +36,15 @@ def get_data_root_path() -> Path:
     return Path(get_project_root_path(), "data")
 
 
+def get_output_root_path() -> Path:
+    """Get path to the output directory
+
+    Returns:
+        pathlib.Path: Path to output directory
+    """
+    return Path(get_project_root_path(), "output")
+
+
 if __name__ == "__main__":
     print(f"Path to root: {get_project_root_path()}")
     print(f"Data root: {get_data_root_path()}")
