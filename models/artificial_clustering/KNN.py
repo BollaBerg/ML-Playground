@@ -7,7 +7,6 @@ from sklearn.cluster import KMeans
 from packages.path_utility import get_output_root_path
 
 ### Constants ###
-RANDOM_STATE = 123  # State used to make blobs, for deterministic comparison
 N_SAMPLES = 1000    # Number of rows of the dataset
 N_FEATURES = 2      # Number of dimensions of the data. 2 -> easier plotting
 N_CENTERS = 4       # Number of centers (K)
@@ -21,7 +20,6 @@ dataset, _ = make_blobs(
     n_samples=N_SAMPLES,
     n_features=N_FEATURES,
     centers=N_CENTERS,
-    random_state=RANDOM_STATE,
 )
 
 
@@ -37,6 +35,10 @@ model = KMeans(
 print("Fitting model")
 model.fit(dataset)
 labels = model.predict(dataset)
+
+
+### Score model ###
+print(f"Score: {model.score(dataset)}")
 
 
 ### Plot clustering ###
