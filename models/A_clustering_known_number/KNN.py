@@ -3,7 +3,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-import packages.data_generation.A_clustering_known_number as data
+import data.A_clustering_known_number.generate_data as data
 from packages.path_utility import get_output_root_path
 from packages.logging import logger
 

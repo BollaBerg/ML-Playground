@@ -14,7 +14,7 @@ The project is organized in a couple different parts:
 - `packages`: These contain all code used by more than one model. The idea is that these will include utilities such as path utilities and common data operations (perhaps even DB-handling).
 
 ### Tasks
-All tasks are given a task number and a description. Models relates to a specific task, so `models` are organized by task. The same task number and description can be found in `packages.data_generation`, where data is generated (or gotten from somewhere) to use in the models.
+All tasks are given a task number and a description. Models relates to a specific task, so `models` are organized by task. The same task number and description can be found in `data`, where data is generated (or gotten from somewhere and stored, when I get that far) to use in the models.
 
 | Task number   | Type          | Description |
 | :-----------: | ------------- | ----------- |
