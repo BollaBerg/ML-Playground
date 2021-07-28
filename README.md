@@ -13,6 +13,13 @@ The project is organized in a couple different parts:
 - `output`: Output from implemented models. Contains dumped models, plots, logs and reports.
 - `packages`: These contain all code used by more than one model. The idea is that these will include utilities such as path utilities and common data operations (perhaps even DB-handling).
 
+### Tasks
+All tasks are given a task number and a description. Models relates to a specific task, so `models` are organized by task. The same task number and description can be found in `packages.data_generation`, where data is generated (or gotten from somewhere) to use in the models.
+
+| Task number   | Type          | Description |
+| :-----------: | ------------- | ----------- |
+| A             | Unsupervised  | Clustering with known number of clusters. No labels are given. |
+
 ## Code style
 The code should, as far as reasonably possible, follow PEP8. Most functions and methods should include docstrings following Google's Docstring Template.
 
