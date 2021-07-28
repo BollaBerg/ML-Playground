@@ -6,7 +6,7 @@ import logging.config
 
 from packages.path_utility import get_project_root_path
 
-@functools.cache
+@functools.lru_cache(maxsize=None)
 def setup_base_logging() -> logging.Logger:
     """Setup base logging, including formatting (so logs are kept similar)
 
