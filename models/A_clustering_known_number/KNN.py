@@ -3,10 +3,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 
-from packages.data_generation.A_clustering_known_number import (
-    dataset,
-    N_CENTERS,
-)
+import packages.data_generation.A_clustering_known_number as data
 from packages.path_utility import get_output_root_path
 from packages.logging import logger
 
@@ -14,13 +11,18 @@ from packages.logging import logger
 ### CONSTANTS ###
 N_INIT = 15         # Times K-means will be run with different centroid seeds
 
+
+### SETUP ###
+dataset = data.get_dataset()
+
 ### Create and fit model ###
 logger.info("Creating model")
 logger.debug(
-    f"Model: KMeans, n_clusters={N_CENTERS}, init='k-means++', n_init={N_INIT}"
+    f"Model: KMeans, n_clusters={data.N_CENTERS}, init='k-means++', "
+    + f"n_init={N_INIT}"
 )
 model = KMeans(
-    n_clusters=N_CENTERS,
+    n_clusters=data.N_CENTERS,
     init="k-means++",
     n_init=N_INIT
 )
