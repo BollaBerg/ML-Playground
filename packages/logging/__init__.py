@@ -1,3 +1,3 @@
-from .logging_setup import setup_base_logging
+from .logging_setup import get_logger
 
-logger = setup_base_logging()
+logger = get_logger()
