@@ -20,6 +20,15 @@ All tasks are given a task number and a description. Models relates to a specifi
 | :-----------: | ------------- | ----------- |
 | A             | Unsupervised  | Clustering with known number of clusters. No labels are given. |
 
+
+### Models
+One key goal of this project is to learn more about different machine learning models, how they are used and what cases they solve well (as well as what cases they struggle with solving). By listing them here, I can more easily remember them when the case comes.
+
+#### Clustering
+| Model | Used on task(s) | From library | Description | Comments |
+| ----- | :-------------: | ------------ | ----------- | -------- |
+| K-Means | A | `sklearn.cluster.KMeans` | Gathers samples in N groups by minimizing intertia (within-cluster sum-of-squares) | - |
+
 ## Code style
 The code should, as far as reasonably possible, follow PEP8. Most functions and methods should include docstrings following Google's Docstring Template.
 
