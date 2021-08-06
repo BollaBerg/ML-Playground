@@ -1,0 +1,40 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "()": "packages.logging.formatters.CustomFormatter",
+            "format": "%(name)s : %(levelname)s : %(message)s"
+        },
+        "verbose": {
+            "()": "packages.logging.formatters.CustomFormatter",
+            "format": "%(asctime)s : %(name)s [%(filename)s %(lineno)d] : %(levelname)s : %(message)s",
+            "datefmt": "%H:%M:%S"
+        }
+    },
+    "handlers": {
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "simple"
+        },
+        "file": {
+            "level": "DEBUG",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": "SET IN CODE TO {root}/logs/project_log.log",
+            "mode": "w"
+        }
+    },
+    "loggers": {
+        "playground": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
+            "propagate": false
+        }
+    },
+    "root": {
+        "handlers": ["console", "file"],
+        "level": "WARNING"
+    }
+}
