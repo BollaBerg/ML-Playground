@@ -1,5 +1,4 @@
 from pathlib import Path
-import functools
 import json
 import logging
 import logging.config
