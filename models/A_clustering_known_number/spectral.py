@@ -20,7 +20,7 @@ logger = get_logger(__name__)
 
 def create_model() -> sklearn.cluster.SpectralClustering:
     """Create and return a SpectralClustering-model"""
-    logger.info("Creating model")
+    logger.info("Creating Spectral Clustering model")
     logger.debug(
         f"Model: SpectralClustering, n_clusters={data.N_CENTERS},"
         + f"n_init={N_INIT}, n_jobs=-1"
