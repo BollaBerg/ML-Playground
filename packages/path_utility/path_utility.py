@@ -37,6 +37,30 @@ def get_output_root_path() -> Path:
     return Path(get_project_root_path(), "output")
 
 
+def create_and_get_path(*args) -> Path:
+    """Ensure a path exists, and return the wanted path.
+
+    This function takes in steps of a path, and ensures the directories
+    (including the last file) exists, before returning a Path.
+
+    Usage:
+        >>> path_to_output = create_and_get_path(
+                get_project_root_path(), "output", "example.png"
+            )
+        >>> # path_to_output is guaranteed to exists
+
+    Args:
+        *args: Path to the file that should exist
+
+    Returns:
+        Path: Path to supplied file. Guaranteed to exist.
+    """
+    path = Path(args)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.touch()
+    return path
+
+
 if __name__ == "__main__":
     print(f"Path to root: {get_project_root_path()}")
     print(f"Data root: {get_data_root_path()}")
