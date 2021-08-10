@@ -30,6 +30,7 @@ One key goal of this project is to learn more about different machine learning m
 | K-Means | A | `sklearn.cluster.KMeans` | Gathers samples in N groups by minimizing intertia (within-cluster sum-of-squares) | Inductive, so it can predict clusters for new data points |
 | Agglomerative Clustering - Ward | A | `sklearn.cluster.AgglomerativeClustering` | Recursively merges pairs of clusters that increases linkage distance the least | Transductive, so it cannot predict clusters for new data points |
 | Spectral Clustering | A | `sklearn.cluster.SpectralClustering` | Projects the data, then clusters the projection | Transductive. Very good on non-convex clusters, where center and spread is not a good measure, such as nested circles in a 2D plane |
+| Gaussian Mixture | A | `sklearn.mixture.GaussianMixture` | Estimates a Gaussian mixture distribution for the dataset | Inductive. I somewhat struggle to see where this is better than, say, KMeans |
 
 ## Code style
 The code should, as far as reasonably possible, follow PEP8. Most functions and methods should include docstrings following Google's Docstring Template.
