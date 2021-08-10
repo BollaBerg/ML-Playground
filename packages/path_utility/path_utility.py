@@ -55,7 +55,7 @@ def create_and_get_path(*args) -> Path:
     Returns:
         Path: Path to supplied file. Guaranteed to exist.
     """
-    path = Path(args)
+    path = Path(*args)
     path.parent.mkdir(parents=True, exist_ok=True)
     path.touch()
     return path
