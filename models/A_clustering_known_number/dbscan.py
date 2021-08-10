@@ -24,8 +24,8 @@ def create_model() -> sklearn.cluster.DBSCAN:
     """Create and return a DBSCAN-model"""
     logger.info("Creating DBSCAN model")
     logger.debug(
-        f"Model: DBSCAN, eps={EPS}, min_samples={MIN_SAMPLES}, metric={METRIC}"
-        + ", n_jobs=-1"
+        f"Model: DBSCAN, eps={EPS} (default), min_samples={MIN_SAMPLES} "
+        + f"(default), metric={METRIC} (default), n_jobs=-1"
     )
     return DBSCAN(
         eps=EPS,

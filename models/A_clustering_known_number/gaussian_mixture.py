@@ -11,7 +11,9 @@ from packages.plotting.plot_2d import plot_2d_results
 
 
 ### CONSTANTS ###
+COVARIANCE_TYPE = "full"    # Default value
 N_INIT = 10         # Numbers of initializations to do. Best one is kept
+INIT_PARAMS = "kmeans"      # Default value
 
 
 ### SETUP ###
@@ -23,13 +25,14 @@ def create_model() -> sklearn.mixture.GaussianMixture:
     logger.info("Creating Gaussian Mixture model")
     logger.debug(
         f"Model: GaussianMixture, n_components={data.N_CENTERS}, "
-        + f"covariance_type='full', n_init={N_INIT}, init_params='kmeans"
+        + f"covariance_type={COVARIANCE_TYPE}, n_init={N_INIT}, "
+        + f"init_params={INIT_PARAMS}"
     )
     return GaussianMixture(
         n_components=data.N_CENTERS,
-        covariance_type="full",
+        covariance_type=COVARIANCE_TYPE,
         n_init=N_INIT,
-        init_params="kmeans"
+        init_params=INIT_PARAMS,
     )
 
 

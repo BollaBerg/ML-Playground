@@ -12,6 +12,7 @@ from packages.plotting.plot_2d import plot_2d_results
 
 ### CONSTANTS ###
 N_INIT = 15         # Times K-means will be run with different centroid seeds
+INIT = "k-means++"  # Default value
 
 
 ### SETUP ###
@@ -22,12 +23,12 @@ def create_model() -> sklearn.cluster.KMeans:
     """Create and return a KMeans-model"""
     logger.info("Creating KMeans model")
     logger.debug(
-        f"Model: KMeans, n_clusters={data.N_CENTERS}, init='k-means++', "
+        f"Model: KMeans, n_clusters={data.N_CENTERS}, init={INIT}, "
         + f"n_init={N_INIT}"
     )
     return KMeans(
         n_clusters=data.N_CENTERS,
-        init="k-means++",
+        init=INIT,
         n_init=N_INIT
     )
 

@@ -12,6 +12,7 @@ from packages.plotting.plot_2d import plot_2d_results
 ### CONSTANTS ###
 N_INIT = 15         # K-means is used to assign labels in the embedding space.
                     # N_INIT is times K-means will be run with different seeds
+ASSIGN_LABELS = "kmeans"    # Default value
 
 
 ### SETUP ###
@@ -22,12 +23,12 @@ def create_model() -> sklearn.cluster.SpectralClustering:
     """Create and return a SpectralClustering-model"""
     logger.info("Creating Spectral Clustering model")
     logger.debug(
-        f"Model: SpectralClustering, n_clusters={data.N_CENTERS},"
-        + f"n_init={N_INIT}, n_jobs=-1"
+        f"Model: SpectralClustering, n_clusters={data.N_CENTERS}, "
+        + f"assign_labels={ASSIGN_LABELS}, n_init={N_INIT}, n_jobs=-1"
     )
     return SpectralClustering(
         n_clusters=data.N_CENTERS,
-        assign_labels="kmeans",
+        assign_labels=ASSIGN_LABELS,
         n_init=N_INIT,
         n_jobs=-1           # Run K-means in parallel
     )

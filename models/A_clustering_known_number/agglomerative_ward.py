@@ -10,7 +10,7 @@ from packages.plotting.plot_2d import plot_2d_results
 
 
 ### CONSTANTS ###
-# None
+LINKAGE = "ward"        # Default value
 
 
 ### SETUP ###
@@ -22,11 +22,11 @@ def create_model() -> sklearn.cluster.AgglomerativeClustering:
     logger.info("Creating Agglomerative Clustering: Ward")
     logger.debug(
         f"Model: AgglomerativeClustering, n_clusters={data.N_CENTERS}, "
-        + "linkage='ward'"
+        + f"linkage={LINKAGE}"
     )
     return AgglomerativeClustering(
         n_clusters=data.N_CENTERS,
-        linkage="ward"
+        linkage=LINKAGE
     )
 
 

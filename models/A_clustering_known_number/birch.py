@@ -11,7 +11,8 @@ from packages.plotting.plot_2d import plot_2d_results
 
 
 ### CONSTANTS ###
-# None
+THRESHOLD = 0.5         # Default value
+BRANCHING_FACTOR = 50   # Default value
 
 
 ### SETUP ###
@@ -22,12 +23,12 @@ def create_model() -> sklearn.cluster.Birch:
     """Create and return a BIRCH-model"""
     logger.info("Creating BIRCH model")
     logger.debug(
-        f"Model: BIRCH, n_clusters={data.N_CENTERS}, threshold=0.5 (default), "
-        + "branching_factor=50 (default)"
+        f"Model: BIRCH, n_clusters={data.N_CENTERS}, threshold={THRESHOLD} "
+        + f"(default), branching_factor={BRANCHING_FACTOR} (default)"
     )
     return Birch(
-        threshold=0.5,           # Default value
-        branching_factor=50,    # Default value
+        threshold=THRESHOLD,
+        branching_factor=BRANCHING_FACTOR,
         n_clusters=data.N_CENTERS,
     )
 
