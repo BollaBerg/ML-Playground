@@ -4,6 +4,7 @@ This file is intended to hold logging decorators, to wrap function calls.
 from collections.abc import Callable
 import functools
 import logging
+from pathlib import Path
 import inspect
 
 def log_function_call(
@@ -63,16 +64,16 @@ def log_function_call(
 
             logger.log(
                 signature_level,
-                f"Calling {function.__name__!r} with signature: ({signature}),
-                extras=extra_arguments"
+                f"Calling {function.__name__!r} with signature: ({signature})",
+                extras=extra_arguments
             )
 
             return_value = function(*args, **kwargs)
 
             logger.log(
                 return_level,
-                f"{function.__name__!r} returned {return_value!r},
-                extras=extra_arguments"
+                f"{function.__name__!r} returned {return_value!r}",
+                extras=extra_arguments
             )
             return return_value
         return wrapper_log_function_call
