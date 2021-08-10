@@ -65,7 +65,7 @@ def log_function_call(
             logger.log(
                 signature_level,
                 f"Calling {function.__name__!r} with signature: ({signature})",
-                extras=extra_arguments
+                extra=extra_arguments
             )
 
             return_value = function(*args, **kwargs)
@@ -73,7 +73,7 @@ def log_function_call(
             logger.log(
                 return_level,
                 f"{function.__name__!r} returned {return_value!r}",
-                extras=extra_arguments
+                extra=extra_arguments
             )
             return return_value
         return wrapper_log_function_call
