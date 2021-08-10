@@ -27,10 +27,11 @@ One key goal of this project is to learn more about different machine learning m
 #### Clustering
 | Model | Used on task(s) | From library | Description | Comments |
 | ----- | :-------------: | ------------ | ----------- | -------- |
-| K-Means | A | `sklearn.cluster.KMeans` | Gathers samples in N groups by minimizing intertia (within-cluster sum-of-squares) | - |
+| K-Means | A | `sklearn.cluster.KMeans` | Gathers samples in N groups by minimizing intertia (within-cluster sum-of-squares) | Inductive, so it can predict clusters for new data points |
+| Agglomerative Clustering - Ward | A | `sklearn.cluster.AgglomerativeClustering` | Recursively merges pairs of clusters that increases linkage distance the least | Transductive, so it cannot predict clusters for new data points |
 
 ## Code style
 The code should, as far as reasonably possible, follow PEP8. Most functions and methods should include docstrings following Google's Docstring Template.
 
 ## Testing
-Testing will be done with pytest. All tests will reside with related code (meaning that tests of `packages/utility` will be in module `packages/utility/test_utility.py` or directory `packages/utility/test_utility/`).
+Testing will be done with pytest. All tests will reside with related code (meaning that tests of `packages/utility` will be in module `packages/utility/test_utility.py` or directory `packages/utility/tests/`).
