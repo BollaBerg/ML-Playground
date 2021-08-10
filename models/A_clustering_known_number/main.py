@@ -8,6 +8,7 @@ import agglomerative_ward as ward
 import spectral
 import gaussian_mixture as gaussian
 import birch
+import dbscan
 
 logger = get_logger(__name__)
 
@@ -42,6 +43,11 @@ def compare_models():
     logger.debug("Working on BIRCH")
     birch_model = birch.create_model()
     labels["BIRCH"] = birch_model.fit_predict(dataset)
+
+    ### DBSCAN ###
+    logger.debug("Working on DBSCAN")
+    dbscan_model = dbscan.create_model()
+    labels["DBSCAN"] = dbscan_model.fit_predict(dataset)
 
     ### Plotting results ###
     plot_save_path = create_and_get_path(
