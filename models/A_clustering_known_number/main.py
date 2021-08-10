@@ -5,6 +5,7 @@ from packages.plotting.plot_2d import plot_multiple_models
 
 import kmeans
 import agglomerative_ward as ward
+import spectral
 
 logger = get_logger(__name__)
 
@@ -24,12 +25,17 @@ def compare_models():
     ward_model = ward.create_model()
     labels["Agglomerative Clustering: Ward"] = ward_model.fit_predict(dataset)
 
+    ### Spectral ###
+    logger.debug("Working on Spectral")
+    spectral_model = spectral.create_model()
+    labels["Spectral Clustering"] = spectral_model.fit_predict(dataset)
+
     ### Plotting results ###
     plot_save_path = create_and_get_path(
         get_output_root_path(),
         "figures",
         "A_clustering_known_number",
-        "COMPARISON.png"
+        "_COMPARISON.png"
     )
     plot_multiple_models(
         dataset, labels, plot_save_path, "Comparison of task A"
