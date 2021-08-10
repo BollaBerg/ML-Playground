@@ -19,6 +19,7 @@ All tasks are given a task number and a description. Models relates to a specifi
 | Task number   | Type          | Description |
 | :-----------: | ------------- | ----------- |
 | A             | Unsupervised  | Clustering with known number of clusters. No labels are given. |
+| B             | Unsupervised  | Clustering with unknown number of clusters. No labels are given. |
 
 
 ### Models
