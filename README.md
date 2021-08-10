@@ -31,6 +31,7 @@ One key goal of this project is to learn more about different machine learning m
 | Agglomerative Clustering - Ward | A | `sklearn.cluster.AgglomerativeClustering` | Recursively merges pairs of clusters that increases linkage distance the least | Transductive, so it cannot predict clusters for new data points |
 | Spectral Clustering | A | `sklearn.cluster.SpectralClustering` | Projects the data, then clusters the projection | Transductive. Very good on non-convex clusters, where center and spread is not a good measure, such as nested circles in a 2D plane |
 | Gaussian Mixture | A | `sklearn.mixture.GaussianMixture` | Estimates a Gaussian mixture distribution for the dataset | Inductive. I somewhat struggle to see where this is better than, say, KMeans |
+| BIRCH | A | `sklearn.cluster.Birch` | Constructs a tree structure, with centroids read of the leaves. When used with n_clusters, these leaves are used as input to another clustering algorithm | Inductive. Alternative to MiniBatchKMeans. Seems to give some weird results with two fused-together clusters |
 
 ## Code style
 The code should, as far as reasonably possible, follow PEP8. Most functions and methods should include docstrings following Google's Docstring Template.
