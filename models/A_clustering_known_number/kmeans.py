@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import sklearn
+import sklearn.cluster
 from sklearn.cluster import KMeans
 from typing import Tuple, Any
 
@@ -20,7 +20,6 @@ logger = get_logger(__name__)
 
 def create_model() -> sklearn.cluster.KMeans:
     """Create and return a KMeans-model"""
-    ### Create and fit model ###
     logger.info("Creating model")
     logger.debug(
         f"Model: KMeans, n_clusters={data.N_CENTERS}, init='k-means++', "

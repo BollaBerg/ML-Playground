@@ -1,5 +1,5 @@
 import numpy as np
-import sklearn
+import sklearn.cluster
 from sklearn.cluster import AgglomerativeClustering
 from typing import Tuple, Any
 
@@ -18,8 +18,7 @@ logger = get_logger(__name__)
 
 
 def create_model() -> sklearn.cluster.AgglomerativeClustering:
-    """Create and return a KMeans-model"""
-    ### Create and fit model ###
+    """Create and return an AgglomerativeClustering-model"""
     logger.info("Creating Agglomerative Clustering: Ward")
     logger.debug(
         f"Model: AgglomerativeClustering, n_clusters={data.N_CENTERS}, "
