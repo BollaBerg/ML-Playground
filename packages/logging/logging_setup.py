@@ -4,7 +4,7 @@ import logging
 import logging.config
 
 from packages.path_utility import get_project_root_path
-from packages.functools import simplecache
+from packages.functools.decorators import simplecache
 
 @simplecache
 def _setup_base_logging():
