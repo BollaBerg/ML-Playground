@@ -3,7 +3,7 @@ import json
 import logging
 import logging.config
 
-from packages.path_utility import get_project_root_path
+from packages.path_utility import get_project_root_path, create_and_get_path
 from packages.functools.decorators import simplecache
 
 @simplecache
@@ -20,11 +20,9 @@ def _setup_base_logging():
         config_dict = json.load(config)
 
     # Deal with log file - ensure path exists
-    path_to_log_file = Path(
+    path_to_log_file = create_and_get_path(
         get_project_root_path(), "logs", "playground_log.log"
     )
-    path_to_log_file.parent.mkdir(parents=True, exist_ok=True)
-    path_to_log_file.touch()
     
     config_dict["handlers"]["file"]["filename"] = str(path_to_log_file)
     
