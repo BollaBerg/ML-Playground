@@ -7,6 +7,7 @@ import kmeans
 import agglomerative_ward as ward
 import spectral
 import gaussian_mixture as gaussian
+import birch
 
 logger = get_logger(__name__)
 
@@ -36,6 +37,11 @@ def compare_models():
     gaussian_model, gaussian_score = gaussian.train_and_score_model(dataset)
     labels["Gaussian Mixture"] = gaussian_model.predict(dataset)
     print(f"Gaussian Mixture score: {gaussian_score}")
+
+    ### BIRCH ###
+    logger.debug("Working on BIRCH")
+    birch_model = birch.create_model()
+    labels["BIRCH"] = birch_model.fit_predict(dataset)
 
     ### Plotting results ###
     plot_save_path = create_and_get_path(
