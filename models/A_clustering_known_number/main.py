@@ -6,6 +6,7 @@ from packages.plotting.plot_2d import plot_multiple_models
 import kmeans
 import agglomerative_ward as ward
 import spectral
+import gaussian_mixture as gaussian
 
 logger = get_logger(__name__)
 
@@ -29,6 +30,12 @@ def compare_models():
     logger.debug("Working on Spectral")
     spectral_model = spectral.create_model()
     labels["Spectral Clustering"] = spectral_model.fit_predict(dataset)
+
+    ### GaussianMixture ###
+    logger.debug("Working on GaussianMixture")
+    gaussian_model, gaussian_score = gaussian.train_and_score_model(dataset)
+    labels["Gaussian Mixture"] = gaussian_model.predict(dataset)
+    print(f"Gaussian Mixture score: {gaussian_score}")
 
     ### Plotting results ###
     plot_save_path = create_and_get_path(
