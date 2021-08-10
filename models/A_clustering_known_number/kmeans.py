@@ -20,7 +20,7 @@ logger = get_logger(__name__)
 
 def create_model() -> sklearn.cluster.KMeans:
     """Create and return a KMeans-model"""
-    logger.info("Creating model")
+    logger.info("Creating KMeans model")
     logger.debug(
         f"Model: KMeans, n_clusters={data.N_CENTERS}, init='k-means++', "
         + f"n_init={N_INIT}"
@@ -32,14 +32,16 @@ def create_model() -> sklearn.cluster.KMeans:
     )
 
 
-def train_and_score_model(dataset: np.ndarray) -> Tuple[Any, float]:
+def train_and_score_model(
+        dataset: np.ndarray
+    ) -> Tuple[sklearn.cluster.KMeans, float]:
     """Train and score the KMeans model on a given dataset
 
     Args:
         dataset (np.ndarray): Dataset to train the model on
 
     Returns:
-        SKlearn KMeans: Model trained on the dataset.
+        sklearn.cluster.KMeans: Model trained on the dataset.
         float: The model's score on the dataset 
     """
     model = create_model()
