@@ -1,9 +1,8 @@
-from pathlib import Path
-
 import matplotlib.pyplot as plt
 import numpy as np
 import sklearn
 from sklearn.cluster import KMeans
+from typing import Tuple, Any
 
 import data.A_clustering_known_number.generate_data as data
 from packages.logging import get_logger
@@ -34,16 +33,33 @@ def create_model() -> sklearn.cluster.KMeans:
     )
 
 
-def main():
-    dataset = data.get_dataset()
+def train_and_score_model(dataset: np.ndarray) -> Tuple[Any, float]:
+    """Train and score the KMeans model on a given dataset
+
+    Args:
+        dataset (np.ndarray): Dataset to train the model on
+
+    Returns:
+        SKlearn KMeans: Model trained on the dataset.
+        float: The model's score on the dataset 
+    """
     model = create_model()
 
     ### Fit model ###
-    logger.info("Fitting model")
+    logger.info("Fitting kmeans")
     model.fit(dataset)
 
     ### Score model ###
-    logger.info(f"Model trained. Score: {model.score(dataset)}")
+    score = model.score(dataset)
+    logger.info(f"Kmeans trained. Score: {score}")
+
+    return model, score
+
+
+def main():
+    dataset = data.get_dataset()
+    
+    model, _ = train_and_score_model(dataset)
 
     ### Plot results ###
     labels = model.predict(dataset)
