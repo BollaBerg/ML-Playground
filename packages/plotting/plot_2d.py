@@ -1,10 +1,10 @@
-import logging
+import math
 import matplotlib.pyplot as plt
 import numpy as np
 import pathlib
+from typing import Dict
 
 from packages.logging import get_logger
-from packages.logging.decorators import log_function_call
 
 logger = get_logger(__name__)
 
@@ -28,5 +28,48 @@ def plot_2d_results(
         c=labels,
         alpha=0.75
     )
+    plt.savefig(plot_save_path)
+    plt.close()
+
+
+def plot_multiple_models(
+        dataset: np.ndarray,
+        labels: Dict[str, np.ndarray],
+        plot_save_path: pathlib.Path,
+        title: str
+    ):
+    """Plot results from multiple models, to visually compare results
+
+    Args:
+        dataset (np.ndarray): Dataset of points on a 2D-plane. If there are 
+            more than 2 dimensions, only the first 2 will be used to plot the
+            results.
+        labels (Dict[str, np.ndarray]): Dictionary of models and labels. 
+            Expected to be on the form {"model_name": labels}, where labels is
+            a numpy.ndarray with length == length of dataset
+        plot_save_path (pathlib.Path): Path where the plot should be saved.
+        title (str): Title to use for the plot.
+    """
+    logger.info(f"Plotting comparison. Saving plot to {plot_save_path}")
+    number_of_models = len(labels)
+    rows = math.ceil(number_of_models / 2.0)
+
+    fig, axes = plt.subplots(rows, 2, sharex=True, sharey=True)
+    
+    # Disable ticks on axes of plots, as they are not needed for this
+    plt.xticks([])
+    plt.yticks([])
+
+    # Set title
+    fig.suptitle(title)
+
+    for ax, (model_name, labels) in zip(axes.flat, labels.items()):
+        ax.scatter(
+            dataset[:,0], dataset[:,1],
+            c=labels,
+            alpha=0.75
+        )
+        ax.set_title(model_name)
+    
     plt.savefig(plot_save_path)
     plt.close()
